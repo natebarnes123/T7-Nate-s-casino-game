@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Reflection.Metadata.Ecma335;
+using System.Xml;
 
 namespace T7_Nate_s_casino_game
 {
@@ -24,25 +25,48 @@ namespace T7_Nate_s_casino_game
 
                 Console.Write("Would you like to pick heads or tails: ");
                 userChoice = Console.ReadLine().ToLower();
-               
+                
                 headOrTail = generator.Next(2);
 
 
                 if (headOrTail == 0)
                 {
                     Console.WriteLine("The computer flipped a heads");
+                    if (userChoice == "heads" || userChoice == "h")
+                    {
+                        Console.WriteLine("Good guess, you get one point");
+                        points += 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("You did not pick heads, one point will be taken away");
+                        points -= 1;
+                    }
                 }
                 else
                 {
                     Console.WriteLine("The computer flipped a tails");
+                    if (userChoice == "tails" || userChoice == "t")
+                    {
+                        Console.WriteLine("Good guess, you get one point");
+                        points += 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("You did not guess tails, one point will be taken away");
+                        points -= 1;
+                    }
                 }
-               
-
-                Console.WriteLine("Do you want to play again?");
-
-                playAgain = Console.ReadLine().ToLower();
-                if (playAgain == "n" || playAgain == "no") 
+                
+                Console.WriteLine("Do you want to play again? You currently have " + points + " points");
+                if (points == 0)
+                {
+                    Console.WriteLine("You have 0 points left, you lose. Come back later");
                     done = true;
+                }
+                
+              
+                    
             }
 
 
