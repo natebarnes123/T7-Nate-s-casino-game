@@ -7,12 +7,12 @@ namespace T7_Nate_s_casino_game
     {
         static void Main(string[] args)
         {
-            string userChoice, playAgain;
+            string userChoice;
             int points = 3;
             bool done = false;
             Random generator = new Random();
             int headOrTail;
-
+            string playAgain;
             // 0 - Heads
             // 1 - Tails
 
@@ -57,12 +57,23 @@ namespace T7_Nate_s_casino_game
                         points -= 1;
                     }
                 }
-                
+                Console.WriteLine();
+
                 Console.WriteLine("Do you want to play again? You currently have " + points + " points");
+               
+                   
                 if (points == 0)
                 {
                     Console.WriteLine("You have 0 points left, you lose. Come back later");
                     done = true;
+                }
+                else
+                {
+                    Console.WriteLine("would you like to play again");
+                    if (playAgain == "no" || playAgain == "n")
+                    {
+                        done = true;
+                    }
                 }
                 
               
