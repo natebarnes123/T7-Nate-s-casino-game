@@ -69,7 +69,8 @@ namespace T7_Nate_s_casino_game
                 }
                 else
                 {
-                    Console.WriteLine("would you like to play again");
+                    Console.WriteLine("(yes or no)");
+                    playAgain = Console.ReadLine();
                     if (playAgain == "no" || playAgain == "n")
                     {
                         done = true;
@@ -79,6 +80,7 @@ namespace T7_Nate_s_casino_game
               
                     
             }
+            Console.WriteLine("Thanks for playing at nates casino");
 
 
 
